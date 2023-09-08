@@ -1,13 +1,13 @@
 // สุ่มนะจ๊ะ
 
 function createQuestion() {
-    const symbols = ['+', '-', '*', '/'];
-    const num1 = Math.floor(Math.random() * 11);
-    const num2 = Math.floor(Math.random() * 11);
-    const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+    var symbols = ['+', '-', '*', '/'];
+    var num1 = Math.floor(Math.random() * 11);
+    var num2 = Math.floor(Math.random() * 11);
+    var symbol = symbols[Math.floor(Math.random() * symbols.length)];
     
-    const expression = `${num1} ${symbol} ${num2}`;
-    const result = eval(expression);
+    var expression = `${num1} ${symbol} ${num2}`;
+    var result = eval(expression);
     
     return {
         expression,
@@ -15,8 +15,8 @@ function createQuestion() {
     };
 }
 // คะแนน / คะแนนเต็ม
-let score = 0;
-let fullScore = 0;
+var score = 0;
+var fullScore = 0;
 // Update คะแนน
 function updateScore() {
     document.getElementById("score").textContent = score;
@@ -24,14 +24,14 @@ function updateScore() {
 }
 // แสดงคำถาม
 function showMathProblem() {
-    const randomQuestion = createQuestion();
-    const questionText = document.getElementById("questionText");
-    const answerInput = document.getElementById("userAnswer");
+    var randomQuestion = createQuestion();
+    var questionText = document.getElementById("questionText");
+    var answerInput = document.getElementById("userAnswer");
     answerInput.value = ""; // Clear the input field   
     questionText.textContent = `คำถาม: ${randomQuestion.expression}`;    
     document.getElementById("submitAnswer").addEventListener("click", function() {
-        const userAnswer = parseFloat(answerInput.value);
-        const correctAnswer = randomQuestion.result;        
+        var userAnswer = parseFloat(answerInput.value);
+        var correctAnswer = randomQuestion.result;        
         if (!isNaN(userAnswer) && userAnswer === correctAnswer) {
             score++;
         }        
