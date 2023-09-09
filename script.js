@@ -6,7 +6,7 @@ function createQuestion() {
     var num2 = Math.floor(Math.random() * 11);
     var symbol = symbols[Math.floor(Math.random() * symbols.length)];
     
-    var expression = `${num1} ${symbol} ${num2}`;
+    var expression = num1 + symbol + num2;
     var result = eval(expression);
     
     return {
